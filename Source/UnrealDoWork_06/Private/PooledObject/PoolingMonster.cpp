@@ -4,7 +4,7 @@
 
 APoolingMonster::APoolingMonster()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 }
 
 void APoolingMonster::BeginPlay()
@@ -14,12 +14,12 @@ void APoolingMonster::BeginPlay()
 
 void APoolingMonster::OnAcquiredFromPool()
 {
-	
+	UE_LOG(LogTemp, Log, TEXT("[Pool] %s Acquired (Tag: %s)"), *GetName(), *PoolTag.ToString());
 }
 
 void APoolingMonster::OnReturnedToPool()
 {
-	
+	UE_LOG(LogTemp, Log, TEXT("[Pool] %s Returned (Tag: %s)"), *GetName(), *PoolTag.ToString());
 }
 
 
